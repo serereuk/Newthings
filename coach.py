@@ -36,7 +36,7 @@ class coaching():
 
     def learn(self):
 
-        for iter in range(3):
+        for iter in range(100):
             iterationtrainexample = []
             finalexample = []
 
