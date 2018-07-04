@@ -33,12 +33,12 @@ class deep():
         self.prob = tf.nn.softmax(self.pi)
         self.v = tanh(dense(s_fc2, 1))
 
-        self.caculate_loss()
+        self.calculate_loss()
 
     def conv2d(self, x, out_channels, padding):
         return tf.layers.conv2d(x, out_channels, kernel_size=[3, 3], padding=padding)
 
-    def caculate_loss(self):
+    def calculate_loss(self):
         self.target_pis = tf.placeholder("float", shape=[None, self.actionsize])
         self.target_vs = tf.placeholder("float", shape=[None])
         self.loss_pi = tf.losses.softmax_cross_entropy(self.target_pis, self.pi)

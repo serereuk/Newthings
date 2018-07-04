@@ -15,7 +15,6 @@ class nn():
     def train(self, examples):
         for epoch in range(100):
             print("epoch" + str(epoch + 1))
-            print(self.sess.run(self.nnet.total_loss))
             batch_idx = 0
             while batch_idx < int(len(examples) / 50):
                 sample_ids = np.random.randint(len(examples), 50)
