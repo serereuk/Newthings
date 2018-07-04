@@ -1,11 +1,11 @@
 import tensorflow as tf
 import numpy as np
 import os
-from deep import deep
+from deep2 import deep2
 
 class nn():
     def __init__(self, game):
-        self.nnet = deep(game)
+        self.nnet = deep2(game)
         self.board_x , self.board_y = game.getboardsize()
         self.actionsize = game.actionsize()
         self.saver = None

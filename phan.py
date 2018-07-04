@@ -39,8 +39,6 @@ class Phan:
         return False
 
     def iswin(self, color):
-        win = self.win_standard
-        stating = []
         dif = int(self.gbsize - self.win_standard)
 
         for i in range(self.gbsize):

@@ -59,7 +59,6 @@ class mcts():
         cur_best = -float('inf')
         best_act = -1
 
-        # pick the action with the highest upper confidence bound
         for a in range(self.game.actionsize()):
             if valids[a]:
                 if (s, a) in self.Qsa:

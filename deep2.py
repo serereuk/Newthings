@@ -2,7 +2,7 @@
 import tensorflow as tf
 
 
-class deep():
+class deep2():
     def __init__(self, game):
         self.board_x, self.board_y = game.getboardsize()
         self.actionsize = game.actionsize()
