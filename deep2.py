@@ -31,8 +31,8 @@ class deep2():
         #h_conv4 = relu(batchnormalization(self.conv2d(h_conv3, 512, "valid"), axis=3, training=self.istraining))
 
         h_conv4_flat = tf.reshape(h_conv4, [-1, 512 * (self.board_x) * (self.board_y)])
-        s_fc1 = dropout(relu(batchnormalization(dense(h_conv4_flat, 1024), axis=1, training=self.istraining)), rate=0.5)
-        s_fc2 = dropout(relu(batchnormalization(dense(s_fc1, 512), axis=1, training=self.istraining)), rate=0.5)
+        s_fc1 = dropout(relu(batchnormalization(dense(h_conv4_flat, 1024), axis=1, training=self.istraining)), rate=1.0)
+        s_fc2 = dropout(relu(batchnormalization(dense(s_fc1, 512), axis=1, training=self.istraining)), rate=1.0)
         self.pi = dense(s_fc2, self.actionsize)
         self.prob = tf.nn.softmax(self.pi)
         self.v = tanh(dense(s_fc2, 1))

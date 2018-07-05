@@ -70,7 +70,7 @@ class Omokgame():
         for i in range(1, 5):
             for j in [True, False]:
                 newb = np.rot90(board, i)
-                newpi = np.rot90(board, i)
+                newpi = np.rot90(pi_board, i)
 
                 if j:
                     newb = np.fliplr(newb)
