@@ -21,7 +21,7 @@ class coaching():
             #print(episodestep)
             oneminusone = self.game.oneminusone(board, self.curplayer)
             temp = int(episodestep < 20)
-            pi = self.mcts.getactionprob(oneminusone)
+            pi = self.mcts.getactionprob(oneminusone, temp)
             sym = self.game.symme(oneminusone, pi)
             for b, p in sym:
                 trainexample.append([b, self.curplayer, p, None])

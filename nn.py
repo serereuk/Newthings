@@ -17,7 +17,7 @@ class nn():
             print("epoch" + str(epoch + 1))
             batch_idx = 0
             while batch_idx < int(len(examples) / 50):
-                sample_ids = np.random.randint(len(examples), 50)
+                sample_ids = np.random.randint(len(examples), size=50)
                 boards, pis, vs = list(zip(*[examples[i] for i in sample_ids]))
 
                 input_dict = {self.nnet.input_boards: boards, self.nnet.target_pis: pis, self.nnet.target_vs: vs,
@@ -25,7 +25,7 @@ class nn():
 
                 self.sess.run(self.nnet.train_step, feed_dict=input_dict)
                 pi_loss, v_loss = self.sess.run([self.nnet.loss_pi, self.nnet.loss_v], feed_dict=input_dict)
-
+                self.sess.run(self.nnet.total_loss)
                 batch_idx += 1
 
     def predict(self, board):
