@@ -35,7 +35,6 @@ class mcts():
         if s not in self.Es:
             self.Es[s] = self.game.ggeutnam(oneminusone, 1)
         if self.Es[s] != 0:
-            # terminal node
             return -self.Es[s]
 
         if s not in self.Ps:
