@@ -34,11 +34,18 @@ class fight():
 
 def Run():
     try:
-        board = Omokgame(9,5).startphan()
-        display = visual(9, 5)
+        b = Phan(13, 5)
+        board = Omokgame.startphan()
+        b.board = np.copy(board)
+        display = visual(13, 5)
         display.prepare_display()
+        f = fight(13, 5)
+        human_move = f.Act(b.board)
+
+
+
         best_model = nn.loading("folder", "model1")
-        best_mcts = mcts(Omokgame(9, 5), best_model)
+        best_mcts = mcts(Omokgame(13, 5), best_model)
 
     except KeyboardInterrupt:
         print("error")
