@@ -1,6 +1,6 @@
 import numpy as np
 from phan import Phan
-
+from visual import visual
 
 class Omokgame():
 
@@ -82,3 +82,12 @@ class Omokgame():
 
     def stringstring(self, board):
         return board.tostring()
+
+    def real_play(self, board ,action, player):
+        self.r = False
+        board, _ = self.nextstate(board, player, action)
+        if self.ggeutnam(board, player) == 1 or self.ggeutnam(board, player) == 0:
+            self.r = True
+        else:
+            self.r = False
+        return board ,self.r
